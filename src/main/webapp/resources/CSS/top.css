@@ -1,0 +1,79 @@
+@CHARSET "UTF-8";
+
+/* page-main-image */
+.page-main-div {
+	width: 100vw; /* どの親要素などに関わらずページ全体の背景画像とするので、vwで指定。 */
+	height: 700px;
+	max-height: 100vw; /* 最大高さ */
+	background-color: #f7f8f9;
+    background-image: url(../images/flight-view01.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+/* your-trip-plans */
+#trip-planning-div {
+	position: realtive;
+	margin: 50px 50px;
+	/* 子要素を中央揃え */
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column; /* 子要素を縦に並べる */
+	align-items: center;
+}
+
+#trip-planning-options-div {
+	position: relative;
+	margin-top: 20px;
+	/*border: 0.2px #000 solid;*/
+}
+.your-trip-plans-div{
+	background: #FFFF99;
+	position: relative;
+	padding: 10px 20px;
+	width: 900px;
+}
+.your-trip-plans-div p {
+	margin: 0px 10px;
+	color: #000;
+	font-size: 20px; 
+	cursor: pointer;
+}
+.your-trip-plans-div p::before{/* 閉じている時 */
+	content: "＋";
+	margin-right: 20px;
+}
+.your-trip-plans-div p.active::before{/* 開いている時 */
+	content: "－";
+}
+#your-trip-plans-list-nav-div {
+	position: relative;
+	margin: 0px;
+}
+#your-trip-plans-list-nav {
+	display: none;
+	padding: 10px 30px;
+	background: #FFFFDD;
+	font-size: 17px;
+}
+#your-trip-plans-list-nav a:hover {
+	text-decoration: underline; /* マウスオーバー時は下線を表示 */
+}
+.destinations-list-div {
+	background: #FFFF99;
+	position: relative;
+	padding: 10px 20px;
+	width: 900px;
+}
+.destinations-list-div a {
+	margin: 0px 10px;
+	font-size: 20px;
+}
+
+.page-p {
+	color: #FFF;
+	font-size: 70px;
+	margin-top: 50px;
+}

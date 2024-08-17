@@ -1,0 +1,644 @@
+@CHARSET "UTF-8";
+/**********************************************************************/
+:root {
+  /** color */
+  --blackColor: #000;
+  --grayColor: #696666;
+  --gray02Color: #61646d;
+  --darkGrayColor: #42454e;
+  --greenColor: #5ebfac;
+  --green02Color: #189e83;
+  --lightGrayColor: #ccc8c8;
+  --lightYellowColor: #FFFFDD;
+  --lightPink01Color: #FFE4E1;
+  --lightBluePinkColor: #FFE0ED;
+  --whiteColor: #fff;
+
+  /** font weight */
+  --lighterFontWeight: lighter;
+
+
+  --textStroke : -webkit-text-stroke: 0.2px var(--blackColor);
+
+  --mapZindex: 1;
+
+  --gridMarginTop: 1rem;
+  --gridMarginLeft: 3rem;
+  --gridMaxWidth: 20rem;
+  --gridWidth: 90%;
+
+  --bodyFontFamily: 'Open Sans';
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: .875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+
+  --searchBoxZindex: 100;
+
+  --searchBorderRadius: .125rem;
+  --searchFontSize: .75rem;
+  --searchPadding: .07rem;
+
+  --searchInputBorderRadius: .125rem;
+
+  --searchInputSearchPaddingHorizontal: .5rem;
+  --searchInputSearchPaddingVertical: .375rem;
+
+  --searchInputButtonPaddingHorizontal: .625rem;
+  --searchInputButtonPaddingVertical: .375rem;
+
+  /* Table Style */
+  --tableWidth: 1000px;
+
+}
+
+/**********************************************************************/
+/* global style setting */
+
+::placeholder {
+  color: var(--darkGrayColor);
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+	text-align: center;
+}
+
+checkbox {
+	text-align: center;
+}
+
+/**********************************************************************/
+
+.page-main-image {
+	position: relative;
+    /* height: 500px; */
+    height: 80vh;
+}
+
+#worldMap {
+	position: absolute;  /* page-main-image の中にいっぱいに表示する。他の兄弟要素は重なって表示される */
+	/* position: relative; */
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: var(--mapZindex);
+}
+
+#worldMap img {
+	width: 100%;
+    height: 100%;
+	text-align: center;
+}
+
+#mapContainer {
+	position: absolute;
+	/* position: relative; */
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: var(--mapZindex);
+}
+
+.page-breadcrumb {
+	background-color: var(--lightYellowColor);
+	padding: 5px 20px;
+	font-size: 17px;
+}
+
+.page-breadcrumb a#previous-page-name:hover { /* #previous-page-nameにのみ適用  */
+	text-decoration: underline; /* マウスオーバー時は下線を表示 */
+}
+.page-breadcrumb #previous-page-name {
+	color: 	#808080;
+}
+.page-breadcrumb p {
+	display: inline; /* pタグを改行させない */
+}
+
+.page-breadcrumb span {
+	color: 	#808080;
+}
+
+.page-top-nav {
+	height: 40px;
+}
+
+.page-top-nav-links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+}
+
+.page-top-nav #blog	{
+	margin-right: 40px;
+}
+
+/* three dots leader */
+.css-three-dots-leader-btn {
+  border: none;
+  background: none;
+ /* display: block; */
+  position: relative;
+  /* ボタン要素のサイズ */
+  width: 25px;
+  height: 10px;
+}
+.css-three-dots-leader-btn #css-three-dots,
+.css-three-dots-leader-btn #css-three-dots::before,
+.css-three-dots-leader-btn #css-three-dots::after {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  /* ドット1つのサイズ */
+  width: 3px;
+  height: 3px;
+  /* ドットの色 */
+  background-color: #000;
+}
+.css-three-dots-leader-btn #css-three-dots {
+  top: 0;
+  right: 0;
+  bottom: 10;
+  left: 0;
+  margin: auto;
+}
+.css-three-dots-leader-btn #css-three-dots::before,
+.css-three-dots-leader-btn #css-three-dots::after {
+  content: '';
+}
+.css-three-dots-leader-btn #css-three-dots::before {
+  /* 上側ドットの位置 */
+  top: -7px;
+}
+.css-three-dots-leader-btn #css-three-dots::after {
+  /* 下側ドットの位置 */
+  top: 7px;
+}
+/* three dots leader end */
+
+/** button */
+button {
+	cursor: pointer;
+}
+
+/** table */
+table {
+	border: 1px solid var(--grayColor);
+	border-collapse: collapse;
+	margin: 3px 0px;
+/*	table-layout: fixed;*/
+}
+
+td, th {
+	border: 1px solid var(--grayColor);
+	padding: 7px 20px;
+	font-weight: var(--lighterFontWeight);
+}
+
+#content-table {
+	background-color: var(--whiteColor);
+}
+
+
+/** Map Result */
+div.map-search-results {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 15px 70px;
+}
+
+.map-search-results table {
+	width: var(--tableWidth);
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.map-search-results table #header-table {
+	background-color: var(--whiteColor);
+	text-align: center;
+}
+
+#search-result-header-table th:nth-of-type(1){
+	text-align: start;
+	width: 100%;
+	border: none;
+}
+
+#css-search-result-button-td button {
+	height: 20px;
+	width: 50%;
+	border-radius: 0px;
+	background-color: ;
+}
+
+/* search-result-table header columns */
+/** No */
+#search-result-table #header-table th:nth-of-type(1){
+	width: 2px;
+}
+/** Address */
+#search-result-table #header-table th:nth-of-type(2){
+}
+/** Add to list */
+#search-result-table #header-table th:nth-of-type(4){
+	width: 130px;
+}
+
+/* search result */
+.css-search-result-record-no {
+	text-align: center;
+}
+
+/*
+.css-search-result-checkbox-td {
+	text-align: center;
+}
+*/
+
+#css-search-result-button-td {
+	text-align: center;
+}
+
+/** error message **/
+.css-error-message {
+	margin: 30px 0px 0px 70px;
+	color: var(--red01);
+}
+.css-error-message span::after {
+	content: "\A";
+	white-space: pre;
+}
+/** error message end **/
+
+
+/** Spot List, Delete List */
+div.body-make-new-plans {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	padding: 0px 70px;
+	/* flex-direction: column; */ /* 子要素を縦に並べる */
+}
+
+#page-title {
+	/*font-size: 15px;*/
+}
+
+#page-title p{
+	text-align: left;
+}
+
+.css-list-chbox {
+	display: none;
+}
+
+/* spot-list-table nav ***********/
+.css-spot-list-nav {
+	display: flex;
+	flex-direction: row;
+}
+.css-spot-list-nav div,
+.css-spot-list-nav button {
+	margin: 0 10px 0 0;
+}
+.css-draw-route {
+	position: relative;
+	width: 36px;
+	height: 24px;
+	border-radius: 50px;
+	overflow: hidden;  /* 枠内に収まらない要素は表示しない */
+	cursor: pointer;
+}
+.css-draw-route:before {
+	content: "";
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: var(--lightGrayColor);
+    transition: 0.2s ease-out;
+}
+.css-draw-route:after {
+	content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 16px;
+    display: block;
+    border-radius: 50px;
+    background: #fff;
+    box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);  /* right-left top-bottom shading extension-of-XY */
+    transition: 0.2s ease-out;
+}
+.css-draw-route.checked:before {
+	background: var(--greenColor);
+}
+.css-draw-route.checked:after {
+	left: 33%;
+	box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* spot-list-table *********************/
+#spot-list-table {
+	border: none;
+}
+#spot-list-table textarea {
+	word-break: normal;  /* 文字列折り返し */
+}
+#spot-list-table .css-list-chbox:checked + label{
+    background-color: var(--greenColor);
+    color: var(--blackColor);
+	border: none;
+}
+#spot-list-table .css-list-chbox + label {
+	padding: 5px 20px;
+	text-align: center;
+	cursor: pointer;
+    background-color: var(--whiteColor);
+    color: var(--lightGrayColor);
+    border-radius: 3px;
+	/*border: 0.2px solid var(--blackColor);*/
+}
+#spot-list-table th:nth-of-type(1) {
+	display: none;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+	background-color: var(--whiteColor);
+}
+#spot-list-table tbody td:nth-of-type(1) {
+	position: relative;
+	cursor: grabbing;
+	background-color: var(--whiteColor);
+	display: none;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+}
+#spot-list-table tbody td:nth-of-type(1): active {
+	cursor: grabbing;
+}
+#spot-list-table tbody td:nth-of-type(1) span,
+#spot-list-table tbody td:nth-of-type(1) span::before,
+#spot-list-table tbody td:nth-of-type(1) span::after {
+	display: inline-block;
+	position: relative;
+	background: var(--lightGrayColor);
+	width: 17px;
+	height: 1px;
+}
+#spot-list-table tbody td:nth-of-type(1) span::before,
+#spot-list-table tbody td:nth-of-type(1) span::after {
+	content: '';
+}
+#spot-list-table tbody td:nth-of-type(1) span {
+    top: 0;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    margin: auto;
+}
+#spot-list-table tbody td:nth-of-type(1) span::before {
+	top: -10px;
+}
+#spot-list-table tbody td:nth-of-type(1) span::after {
+	top: 10px;
+}
+/* spot-list-table end ******************/
+
+
+/* delete-list-table ********************/
+#delete-list-table .css-list-chbox:checked + label{
+    background-color: var(--lightGrayColor);
+    color: var(--blackColor);
+	border: none;
+}
+
+#delete-list-table .css-list-chbox-label {
+	padding: 5px 20px;/
+	text-align: center;
+	cursor: pointer;
+    background-color: var(--whiteColor);
+    color: var(--lightGrayColor);
+    border-radius: 3px;
+	/*border: 0.2px solid var(--blackColor);*/
+}
+
+/** spot-list-area */
+#spot-list-area {
+	margin: 0px 15px;
+}
+ /*
+#spot-list-area p{
+	padding-left: 3px;
+	background-color: var(--greenColor);
+}
+*/
+
+#country-div {
+}
+
+#span-spotListRecordNo {
+	visibility : hidden;
+}
+
+#header-table {
+	background-color: var(--greenColor);  /*background-color: var(--lightYellowColor);*/
+}
+
+[id^=spot-list-record-content-] {
+	/* width: 100%; */
+	/* border: none; */
+	outline: none;
+}
+
+[id^=delete-list-record-content-] {
+	width: 100%;
+	/* border: none; */
+	outline: none;
+}
+
+[id*=list-record-no-] {
+	width: 2px;
+}
+
+/** delete-list-area */
+#delete-list-area {
+	margin: 0px 60px 0px 60px;
+}
+
+/*
+#delete-list-area p{
+	padding-left: 3px;
+	background-color: var(--lightGrayColor);
+}
+*/
+
+#delete-list-area #header-table {
+	background-color: var(--lightGrayColor);
+}
+
+/** The Created Route */
+/* the created route **************************/
+
+.body-created-route {
+	padding: 45px 70px;
+	display: none;
+}
+.css-confirm-btn {
+	margin: 30px 0px 0px 70px;
+	height: 50px;
+}
+.css-confirm-btn::before {/* 閉じている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(-45deg); */
+    transform: rotate(-45deg);
+}
+.css-confirm-btn.active::before {/* 開いている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(135deg); */
+    transform: rotate(135deg);
+}
+.css-confirm-btn p {
+	margin: 0px 15px 0px 35px;
+}
+#created-route-table thead th:nth-of-type(1),
+#created-route-table thead th:nth-of-type(2) {
+	display: none;
+}
+#created-route-table tbody td:nth-of-type(1),
+#created-route-table tbody td:nth-of-type(2) {
+	display: none
+}
+
+/* the created table end **********************/
+
+/* page control *******************************/
+.page-control {
+	padding: 45px 70px 0px 70px;
+	display: flex;
+}
+input[type="submit"] {
+	margin: 0px 10px 10px 15px;
+}
+
+/* page control end ***************************/
+
+
+
+/**********************************************************************/
+/* Search Box */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.search-box {
+	position: relative;	 /* 初期値staticは重なりを指定できないため、地図のdiv要素にも重ねて表示できるように設定。 */
+	margin-top: var(--gridMarginTop);
+	margin-left: var(--gridMarginLeft);
+	margin-right: auto;
+	max-width: var(--gridMaxWidth);
+	width: var(--gridWidth);
+    z-index: var(--searchBoxZindex);
+}
+
+.form-field {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.05rem;
+
+	background-color: var(--grayColor);
+	border-radius: var(--searchBorderRadius);
+	font-size: var(--searchFontSize);
+	padding: var(--searchPadding);
+}
+
+.form-field input {
+  appearance: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.form-field input[type="search"],
+.form-field input[type="button"] {
+  border-radius: var(--searchInputBorderRadius);
+}
+
+.form-field input[type="search"] {
+  appearance: textfield;
+  box-sizing: content-box;
+
+  background-color: var(--whiteColor);
+  color: var(--darkGrayColor);
+  padding: var(--searchInputSearchPaddingVertical) var(--searchInputSearchPaddingHorizontal);
+}
+
+.form-field input[type="button"] {
+  cursor: pointer;
+}
+
+#content-to-search {
+  flex-grow: 1;
+}
+
+#search-button {
+  background-color: var(--greenColor);
+  color: var(--blackColor);
+  font-weight: var(--lighterFontWeight);
+  padding: var(--searchInputButtonPaddingVertical) var(--searchInputButtonPaddingHorizontal);
+}
+
+#search-button:focus,
+#search-button:hover {
+  background-color: var(--green02Color);
+}
+
+/**********************************************************************/

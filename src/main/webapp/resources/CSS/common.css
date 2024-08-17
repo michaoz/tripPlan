@@ -1,0 +1,335 @@
+@CHARSET "UTF-8";
+
+:root {
+  /** color */
+  --red01: #DC143C;
+  --orange01: #FF570D;
+  --lightPink01Color: #FFE4E1;
+  --lightBluePinkColor: #FFE0ED;
+  --lightGrayColor02: #ccc8c8;
+  --yellowColor01: #FFFF9D;
+  --lightYellowColor: #FFFFDD;
+  --greenColor: #5ebfac;
+  --green02Color: #189e83;
+  --grayColor: #696666;
+  --gray02Color: #61646d;
+  --darkGrayColor: #42454e;
+  --lightGrayColor01: #808080;
+  --blackColor: #000;
+  --whiteColor01: #fff;
+  --whiteColor02: #f7f8f9;
+}
+
+/** common css *******************************************/
+/* オートコンプリート機能を利用して入力した場合の背景色を白色にする（自動設定を無効にする） */
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "arial";
+	/* font options : Constantia, Helvetica Neue, arial*/
+	font-size: 20px;
+}
+
+input[type=checkbox],
+input[type=radio],
+label,
+select {
+	cursor: pointer;
+}
+
+/** button */
+/* input[type="submit"] {
+	padding: 10px
+	cursor: pointer;
+}*/
+.css-submit-button {
+	padding: 10px;
+	background-color: var(--lightYellowColor);
+	border-radius: 5px;
+	font-size: 15px;
+	cursor: pointer;
+	margin: 0px 10px 10px 15px;
+}
+.css-submit-button:hover {
+	color: var(--red01);
+	background-color: var(--yellowColor01);
+}
+.css-back-button {
+	padding: 10px;
+	background-color: var(--whiteColor01);
+	border-radius: 5px;
+	font-size: 15px;
+	cursor: pointer;
+}
+.css-back-button:hover {
+	color: var(--red01);
+}
+
+/** button end */
+
+/** tooltip start */
+/** prj's source */
+.toggle_tooltip {
+	display: none;
+	margin: 0 10px;
+	padding: 0.3em 0.7em;
+	min-height: 17px;
+	backgtround-color: #fff;
+	border: 0.5px solid #000;
+	opacity: 100%;
+	position: absolute;
+	z-index: 100;  /* to be seen better than the other elms */
+}
+/** tooltip end */
+
+
+/** common css end *******************************************/
+
+
+#content {
+	text-align: center;
+	margin-top:50;
+}
+
+#header {
+	background-color: #FFD700;
+	width: 100%;
+	height: 60px;
+	/*border-top: 0.2px #000000 solid;*/
+	/*border-bottom: 0.2px #000000 solid;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/** footer *******************************************/
+#pre-space-for-footer {
+	position: relative;
+	height: 100px;
+}
+
+#footer {
+	font-weight: normal;
+	font-size: 10px;
+	background-color: #FFD700;
+	color: #000000;
+	position: fixed; /* ページをスクロールしてもついてくる */
+	/* position: absolute; */
+	bottom: 0px;
+	width: 100%;
+	height: 25px;
+	text-align: right;
+	padding: 0;
+}
+
+/** footer end *******************************************/
+
+
+/** エラーメッセージ ************************************************/
+a {
+	text-decoration: none; /* 未選択時は下線は非表示 */
+	color: #000;
+}
+a:hover {
+	color: #DC143C;
+}
+/** エラーメッセージ end *******************************************/
+
+/** header部分　START *******************************************/
+div#logo {
+	position: absolute;
+	font-size: 25px;
+	font-weight: normal;
+	/* margin-top: 7px; */
+	/* margin-left: 15px; */
+}
+a.logoLink {
+	text-decoration: none; /* リンクの下線なし */
+}
+.logoLink:link
+   {color:#000000;}                 /* まだ見ていないリンク色 */
+.logoLink:visited
+   {color:#216F93;}                 /* 既に見たリンク色 */
+.logoLink:hover {
+	text-decoration: none;
+	color:#DC143C; /* マウスオーバー時のリンク色 */
+}
+
+/** header部分　END *******************************************/
+
+/** ログインリンク部分　START *******************************************/
+div#login {
+	position: absolute;
+	top: 35px;
+	right: 40px;
+	font-size: 17px;
+	text-align: right;
+}
+
+.loginLink {
+	font-size: 110%; /* 文字を大きく */
+}
+a.loginLink {
+	text-decoration: none; /* リンクの下線なし */
+}
+.loginLink:link
+   {color:#FFFFFF;}                 /* まだ見ていないリンク色 */
+.loginLink:visited
+   {color:#FFFFFF;}                 /* 既に見たリンク色 */
+/** ログインリンク部分　END *******************************************/
+
+/** ユーザ情報一覧部分 STRAT *******************************************/
+
+/* テーブルにスクロールを付ける為の外枠 */
+.listContents {
+	width:980px;
+	overflow-x:scroll;
+}
+
+.title{
+	margin: 20 auto;
+	font-size: 20px;
+}
+
+.div_search_Text {
+	text-align: left;
+	height: 30px;
+}
+
+.fild_name {
+	background-color: #BAD8E5;
+	white-space: nowrap;
+}
+
+.view_space_head {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+.view_space_head_label {
+	position: relative; bottom: 3px;
+}
+
+.view_space_head_button {
+	position: relative; bottom: 3px;
+}
+
+.view_space_body {
+	margin: 0 auto;
+	padding : 10px ;
+	border-style: solid;
+	border-width: 1px;
+	width: 1000px;
+	border-color: #BDBDBD;
+}
+
+.view_space_body_2 {
+	margin: 0 auto;
+	padding : 10px ;
+	border-style: solid;
+	border-width: 1px;
+	width: 500px;
+	border-color: #BDBDBD;
+}
+
+.btn{
+	WIDTH: 100px;
+	color: black;
+}
+
+
+.btn_2{
+	WIDTH: 100px;
+	color: black;
+	background-color: #D8CEF6;
+}
+
+.btn_space {
+	width: 100%;
+	margin-left: 0;
+	margin-bottom: -5px;
+	border-collapse: collapse;
+}
+
+.notes {
+	color: blue;
+	font-size: 10px;
+}
+
+.infoMsg {
+	color: blue;
+	font-size: 13px;
+}
+
+.inputMsg {
+	text-align: left;
+	color: blue;
+	font-size: 13px;
+}
+
+.required{
+	color: red;
+	font-size: 13px;
+}
+
+/* 一覧用テーブル自体の設定 */
+.listCount {
+	margin: 5 10 2 auto;
+	text-align: right;
+	font-size: 10px;
+}
+
+
+
+.dataList {
+
+	border-collapse: collapse; /* 枠線の表示方法 */
+	border: 1px #1C79C6 solid; /* テーブル全体の枠線（太さ・色・スタイル） */
+	background-color: #FFFFFF; /* 背景色 */
+	overflow-y:scroll;
+	text-align: left;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.dataList TH {
+	background-color: #BAD8E5;
+	border: 1px #1C79C6 solid; /* セルの枠線（太さ・色・スタイル） */
+}
+
+.dataList TD {
+	border: 1px #1C79C6 solid; /* セルの枠線（太さ・色・スタイル） */
+}
+
+/** ユーザ情報一覧部分 END *******************************************/
+
+/** top.jsp用のCSS START *******************************************/
+
+div.syeat{
+	padding-bottom: 60px;
+}
+.pointsyeat {
+	border: 1px #1C79C6 solid; /* テーブル全体の枠線（太さ・色・スタイル） */
+	background-color: #FFFFFF; /* 背景色 */
+	margin-left: auto;
+    margin-right: auto;
+	text-align: left;
+	table-layout: auto;
+	width: 80%;
+}
+.pointsyeat TH {
+	background-color: #BAD8E5;
+	border: 1px #1C79C6 solid; /* セルの枠線（太さ・色・スタイル） */
+}
+.pointsyeat TD {
+	border: 1px #1C79C6 solid; /* セルの枠線（太さ・色・スタイル） */
+}
+
+/** top.jsp用のCSS END *******************************************/

@@ -1,0 +1,327 @@
+@CHARSET "UTF-8";
+/**********************************************************************/
+:root {
+	/** color */
+  --blackColor: #000;
+  --grayColor: #696666;
+  --gray02Color: #61646d;
+  --darkGrayColor: #42454e;
+  --greenColor: #5ebfac;
+  --green02Color: #189e83;
+  --lightGrayColor: #ccc8c8;
+  --lightGreenColor: #bee5dd;
+  --lightlightGrayColor: #DCDCDC;
+  --lightYellowColor: #FFFFDD;
+  --whiteColor: #fff;
+  
+  /** font weight */
+  --lighterFontWeight: lighter;
+  
+  
+  --textStroke : -webkit-text-stroke: 0.2px var(--blackColor);
+	
+  --mapZindex: 1;
+  
+  --gridMarginTop: 1rem;
+  --gridMarginLeft: 3rem;
+  --gridMaxWidth: 20rem;
+  --gridWidth: 90%;
+
+  --bodyFontFamily: 'Open Sans';
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: .875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+
+  --searchBoxZindex: 100;
+
+  --searchBorderRadius: .125rem;
+  --searchFontSize: .75rem;
+  --searchPadding: .07rem;
+
+  --searchInputBorderRadius: .125rem;
+
+  --searchInputSearchPaddingHorizontal: .5rem;
+  --searchInputSearchPaddingVertical: .375rem;
+
+  --searchInputButtonPaddingHorizontal: .625rem;
+  --searchInputButtonPaddingVertical: .375rem;
+  
+  /* Table Style */
+  --tableWidth: 1000px;
+  
+}
+
+/**********************************************************************/
+/* global style setting */
+
+::placeholder {
+  color: var(--darkGrayColor);
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+	text-align: center;
+}
+
+checkbox {
+	text-align: center;
+}
+
+/**********************************************************************/
+
+.page-main-image {
+	position: relative;
+    /* height: 500px; */
+    height: 80vh;
+}
+
+.page-breadcrumb {
+	background-color: var(--lightYellowColor);
+	padding: 5px 20px;
+	font-size: 17px;
+}
+
+.page-breadcrumb a#previous-page-name:hover { /* #previous-page-nameにのみ適用  */
+	text-decoration: underline; /* マウスオーバー時は下線を表示 */
+}
+.page-breadcrumb #previous-page-name {
+	color: 	#808080;
+}
+.page-breadcrumb p {
+	display: inline; /* pタグを改行させない */
+}
+
+.page-breadcrumb span {
+	color: 	#808080;
+}
+
+.page-top-nav {
+	height: 40px;
+}
+
+.page-top-nav-links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	
+}
+
+.page-top-nav #blog	{
+	margin-right: 40px;
+}
+
+/* three dots leader */
+.css-three-dots-leader-btn {
+  border: none;
+  background: none;
+ /* display: block; */
+  position: relative;
+  /* ボタン要素のサイズ */
+  width: 25px;
+  height: 10px;
+}
+.css-three-dots-leader-btn #css-three-dots,
+.css-three-dots-leader-btn #css-three-dots::before,
+.css-three-dots-leader-btn #css-three-dots::after {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  /* ドット1つのサイズ */
+  width: 3px;
+  height: 3px;
+  /* ドットの色 */
+  background-color: #000;
+}
+.css-three-dots-leader-btn #css-three-dots {
+  top: 0;
+  right: 0;
+  bottom: 10;
+  left: 0;
+  margin: auto;
+}
+.css-three-dots-leader-btn #css-three-dots::before, 
+.css-three-dots-leader-btn #css-three-dots::after {
+  content: '';
+}
+.css-three-dots-leader-btn #css-three-dots::before {
+  /* 上側ドットの位置 */
+  top: -7px;
+}
+.css-three-dots-leader-btn #css-three-dots::after {
+  /* 下側ドットの位置 */
+  top: 7px;
+}
+/* three dots leader end */
+
+/** button */
+button {
+	cursor: pointer;
+}
+button a:hover {
+	color: var(--blackColor);
+}
+
+#result-message {
+	margin-left: 70px
+}
+
+/** table */
+table {
+	border: 1px solid var(--grayColor);
+	border-collapse: collapse;
+	margin: 3px 0px;
+/*	table-layout: fixed;*/
+}
+
+td, th {
+	border: 1px solid var(--grayColor);
+	padding: 7px 20px;
+	font-weight: var(--lighterFontWeight);
+}
+
+#content-table {
+	background-color: var(--whiteColor);
+}
+
+
+/* search-result-table header columns */
+/** Address */
+#search-result-table #header-table th:nth-of-type(2){
+}
+/** Add to list */
+#search-result-table #header-table th:nth-of-type(4){
+	width: 130px;
+}
+
+/* search result */
+.css-search-result-record-no {
+	text-align: center;	
+}
+
+/*
+.css-search-result-checkbox-td {
+	text-align: center;
+}
+*/
+
+#css-search-result-button-td {
+	text-align: center;
+}
+
+
+/** The Created Route */
+/* the created route **************************/
+
+/*
+.body-create-route {
+	padding: 45px 70px;
+}
+*/
+.css-confirm-btn {
+	margin: 30px 0px 0px 70px;
+	height: 50px;
+}
+.css-confirm-btn::before {/* 閉じている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(-45deg); */
+    transform: rotate(-45deg);    
+}
+.css-confirm-btn.active::before {/* 開いている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(135deg); */
+    transform: rotate(135deg);
+}
+.css-confirm-btn p {
+	margin: 0px 15px 0px 35px;
+}
+
+/* the created table end **********************/
+
+/* page control *******************************/
+.page-control {
+	padding: 45px 70px;
+}
+
+
+/* page control end ***************************/
+
+
+
+/**********************************************************************/
+/* Search Box */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.form-field {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.05rem;
+	
+	background-color: var(--grayColor);
+	border-radius: var(--searchBorderRadius);
+	font-size: var(--searchFontSize);
+	padding: var(--searchPadding);
+}
+
+.form-field input {
+  appearance: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.form-field input[type="search"],
+.form-field input[type="button"] {
+  border-radius: var(--searchInputBorderRadius);
+}
+
+.form-field input[type="search"] {
+  appearance: textfield;
+  box-sizing: content-box;
+  
+  background-color: var(--whiteColor);
+  color: var(--darkGrayColor);
+  padding: var(--searchInputSearchPaddingVertical) var(--searchInputSearchPaddingHorizontal);
+}
+
+.form-field input[type="button"] {
+  cursor: pointer;
+}
+
+#content-to-search {
+  flex-grow: 1;
+}
+
+/**********************************************************************/

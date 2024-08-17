@@ -1,0 +1,213 @@
+@CHARSET "UTF-8";
+
+:root {
+  /** color */
+  --blackColor: #000;
+  --grayColor: #696666;
+  --gray02Color: #61646d;
+  --darkGrayColor: #42454e;
+  --greenColor: #5ebfac;
+  --green02Color: #189e83;
+  --lightGrayColor01: #808080;
+  --lightGrayColor02: #ccc8c8;
+  --lightYellowColor: #FFFFDD;
+  --lightPink01Color: #FFE4E1;
+  --lightBluePinkColor: #FFE0ED;
+  --orange01: #FF570D;
+  --red01: #DC143C;
+  --whiteColor01: #fff;
+  --whiteColor02: #f7f8f9;
+}
+
+.page-breadcrumb {
+	background-color: var(--lightYellowColor);
+	padding: 5px 20px;
+	font-size: 17px;
+}
+
+.page-breadcrumb a#previous-page-name:hover { /* #previous-page-nameにのみ適用  */
+	text-decoration: underline; /* マウスオーバー時は下線を表示 */
+}
+.page-breadcrumb #previous-page-name {
+	color: 	var(--lightGrayColor01);
+}
+.page-breadcrumb p {
+	display: inline; /* pタグを改行させない */
+}
+
+.page-breadcrumb span {
+	color: 	var(--lightGrayColor01);
+}
+
+.page-top-nav {
+	height: 40px;
+}
+
+.page-top-nav-links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	
+}
+
+.page-top-nav #blog	{
+	margin-right: 40px;
+}
+
+.page-main-image {
+	width: 100vw; /* どの親要素などに関わらずページ全体の背景画像とするので、vwで指定。 */
+	height: 300px;
+	max-height: 30vw; /* 最大高さ */
+	background-color: var(--whiteColor02);
+    background-image: url(../../images/planTrip.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* 2022/10/08 htmlのimgではなく、上記background-imageで画像を挿入することにしたため、現在こちらは使用していない。 */
+.page-main-image img {
+	display: block;
+	width: 100vw; /* どの親要素などに関わらずページ全体の背景画像とするので、vwで指定。 */
+	height: 20vw;
+	max-height: 50vw; /* 最大高さ */
+}
+
+div.body-make-new-plans {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column; /* 子要素を縦に並べる */
+	margin: 10px 70px;
+}
+
+#page-title {
+	/*font-size: 15px;*/
+}
+
+#page-title p{
+	text-align: left;
+}
+
+#page-title span { /* "Make New Plan" */
+	color: var(--orange01);
+	font-size: 25px;
+}
+
+/** Your Trip Plans */
+[id^=new-plans-option] {
+	margin: 30px 40px 0px 40px;
+}
+[id^=new-plans-option] a:hover{
+	/* text-decoration: underline; */ /* マウスオーバー時は下線を表示 */
+}
+#new-plans-option-1 p:nth-of-type(1) {
+	/* width: fit-content; */
+	display: inline-block;
+	margin: 0;
+}
+#new-plans-option-1 p:nth-of-type(1):hover {
+	color: var(--red01);
+	cursor: pointer;
+}
+#new-plans-option-1 p:nth-of-type(2),
+#new-plans-option-2 p:nth-of-type(1) {
+	color: #595959;
+	line-height: 0px;
+	margin-left: 40px;
+	font-size: 15px;
+}
+
+/** create-route-nav */
+#new-plans-option-1 div.create-route-nav {
+	display: none;
+	height: 30px;
+	width: 70%;
+	margin-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: var(--lightPink01Color);
+	/* cursor: pointer; */
+}
+#new-plans-option-1 div.create-route-nav.active {
+	display: block;
+    animation: appear .5s ease;
+	height: 30px;
+	width: 40%;
+	margin-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: var(--lightPink01Color);
+	/* cursor: pointer; */
+}
+@keyframes appear {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+}
+#new-plans-option-1 div.create-route-nav div{
+	margin-left: 20px;
+}
+#new-plans-option-1 div.create-route-nav div.new-plan-nav,
+#new-plans-option-1 div.create-route-nav div.existed-plan-nav {
+	padding: 0px 0px;
+	/*display: none;*/
+	opacity: 0;
+	height: 0;
+}
+#new-plans-option-1 div.create-route-nav div.new-plan-nav.active,
+#new-plans-option-1 div.create-route-nav div.existed-plan-nav.active {
+	padding: 20px 0px;
+	/*display: none;*/
+	opacity: 1 !important;
+	height: 100%;
+	transition: all .5s ease;
+}
+#newTripPlanName {
+    margin: 10px 0px;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+#new-plans-option-1 div input:nth-of-type(2) {
+	margin-left: 40px;
+}
+#existedTripPlanName {
+	margin: 10px 0px;
+	padding: 7px 10px;
+	font-size: 17px;
+}
+/** create-route-nav end */
+
+/* page control *******************************/
+.page-control {
+	padding: 45px 70px 0px 70px;
+	display: flex;
+}
+
+/** submit button */
+.css-submit-button {
+	margin: 0px 10px 10px 15px;
+    /* padding: 7px 7px; */
+	/* display: none; */
+	cursor: not-allowed;
+	background-color: var(--lightGrayColor02);
+	color: var(--lightGrayColor01);
+	border: 1px solid var(--lightGrayColor01);
+	cursor: not-allowed;
+}
+.css-submit-button:hover {
+	color: var(--lightGrayColor01);
+	background-color: var(--lightGrayColor02);
+}
+#back-to-top-page {
+}
+
+/** submit button end */
+
+/* page control end ***************************/
+
+

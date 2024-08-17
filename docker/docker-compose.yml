@@ -1,0 +1,51 @@
+#### docker-compose のみでdocker環境を構築する場合 start
+#version: '3'
+
+#services:
+#  app:
+#    image: jetty:10.0.13-jre11-alpine  # イメージからコンテナ生成する場合、イメージ（リポジトリ:タグ）を指定する。
+#    container_name: app
+#    ports:             # ポートを公開
+#      - "8080:8080"    # ホストOSの8080をコンテナの8080ポートに転送
+#    volumes:           # ローカルとコンテナでファイルを同期する
+#      - ./app/app-src:/var/lib/jetty/webapps   # ホスト側のパス:コンテナのパス
+
+#### docker-compose のみでdocker環境を構築する場合 end
+
+
+
+#### docker-compose、Dockerfile でdocker環境を構築する場合 start
+version: '3'
+
+services:
+  app:
+    container_name: app
+    build: ./app        # Dockerfileのあるディレクトリの指定
+#    image: test-img
+    ports:             # ポートを公開
+      - "8080:8080"    # ホストOSの8080をコンテナの8080ポートに転送
+    volumes:           # ローカルとコンテナでファイルを同期する
+      - ./app/app-src:/var/lib/jetty/webapps   # ホスト側のパス:コンテナのパス
+
+#### docker-compose、Dockerfile でdocker環境を構築する場合 end
+
+
+
+
+
+###########################################################
+
+#    tty: true          # コンテナが起動し続ける
+#    command:           # コンテナ起動時に実行するコマンドを設定
+#    working_dir: /usr/src
+#    depends_on: - psql
+#    entrypoint: "java -jar /app/app.jar"
+#    networks: 
+#      - app-net
+#networks:
+#  app-net:
+#    driver: bridge
+#    image: jetty:10.0.13-jre11-alpine  # イメージからコンテナ生成する場合、イメージ（リポジトリ:タグ）を指定する。
+#      context: ./app
+#      dockerfile: Dockerfile
+

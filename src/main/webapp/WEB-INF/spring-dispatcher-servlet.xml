@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- Bean となるクラスファイルが格納されているパッケージを宣言。 -->
+	<!-- Spring はこのパッケージ配下を自動でスキャンし、Bean として登録する。 -->
+	<!-- base-packageには、プロジェクト作成時のgroup idを設定する -->
+    <context:component-scan base-package="com.oz" />
+
+	<!-- JSP を使用するための宣言 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+    	<!-- コントローラが JSP 名（拡張子なし）を返した際、Spring が 「.jsp」を付与し「/WEB-INF/views/」配下から探すように設定。 -->
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    <!-- <mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
+	</mvc:view-resolvers> -->
+	
+	<!-- JDBC datasource configuration -->
+	<!-- read db config file  -->
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+	  <property name="location" value="/WEB-INF/datasource.properties" />
+	</bean>
+	<!-- db connection -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.primary.driverClassName}" />
+		<property name="url" value="${jdbc.primary.url}" />
+		<property name="username" value="${jdbc.primary.username}" />
+		<property name="password" value="${jdbc.primary.password}" />
+	</bean>
+	<!-- setting of JdbcTemplate usage -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<!-- JDBC Template -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    
+    <!-- この宣言をすることで、 @Component などのアノテーションが使えるようになる。 -->
+    <mvc:annotation-driven />
+    
+    <!-- read message resource -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+      <property name="basename" value="classpath:validatorMessages"></property>
+      <property name="defaultEncoding" value="UTF-8"></property>
+      <property name="fileEncodings" value="UTF-8"></property>
+    </bean>
+    <bean id="validator"
+      class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+      <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+</beans>

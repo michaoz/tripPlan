@@ -1,0 +1,26 @@
+
+.modal {
+	display: none;
+    position: fixed;
+    z-index: 10;
+    height: 400px;
+    width: 40%;
+    margin: 0 30% 100% 30%;
+    background-color: white;
+    border: 1px solid #000;
+}
+.modal div {
+	text-align: center;
+}
+#div-modal-message {
+	margin: 40px 0 0 0;
+	font-size: 25px;
+}
+.css-modal-btns {
+	margin: 25px 0 0 0;
+}
+.css-modal-btns button {
+	padding: 5px 20px;
+	margin: 0 15px;
+	font-size: 23px;
+}

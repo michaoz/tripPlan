@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+/* メニュー設定　ＳＴＡＲＴ　*/
+#menu{
+	background-color:#ffe1f0;
+}
+
+.menuList
+   {
+    width:800px;          /* リスト全体の幅  メニュー項目が増えたら幅を広げる*/
+    height:30px;          /* リスト全体の高さ */
+    list-style:none;      /* リストマークを無しにする */
+    text-align:center;    /* 文字を中央 */
+    font-size:120%;       /* 文字を大きく */
+    line-height:150%;     /* 行の高さを調整 */
+    margin: 0px ;
+   }
+
+/* 各項目 */
+.menuItem
+   {
+    width:195px;          /* 項目の幅 */
+    height:28px;          /* 項目の高さ */
+    float:left;           /* 各項目を左側から回り込み */
+    border: 1px solid #ffe1f0;
+    
+   }
+
+/* リンク部分 */
+.menuLink
+   {
+    display:block;          /* リンク範囲をブロックに変換 */
+    width:100%;             /* リンク範囲（幅）をリスト項目範囲全て */
+    height:100%;            /* リンク範囲（高さ）をリスト項目範囲全て */
+    background-color:#CCEBF7;
+    text-decoration: none; /* リンクの下線なし */
+   }
+
+.menuLink:link
+   {color:#000000;}                 /* まだ見ていないリンク色 */
+
+.menuLink:visited
+   {color:#000000;}                 /* 既に見たリンク色 */
+ 
+.menuLink:hover
+   {
+    background-color:#5AB1D3;
+    color:#ffffff;                  /* マウスが上に来た時の文字色 */
+   }
+      
+/* メニュー設定　END　*/
+

@@ -1,0 +1,582 @@
+@CHARSET "UTF-8";
+/**********************************************************************/
+:root {
+	/** color */
+  --blackColor: #000;
+  --grayColor: #696666;
+  --gray02Color: #61646d;
+  --darkGrayColor: #42454e;
+  --greenColor: #5ebfac;
+  --green02Color: #189e83;
+  --lightGrayColor: #ccc8c8;
+  --lightGreenColor: #bee5dd;
+  --lightlightGrayColor: #DCDCDC;
+  --lightYellowColor: #FFFFDD;
+  --whiteColor: #fff;
+
+  /** font weight */
+  --lighterFontWeight: lighter;
+
+
+  --textStroke : -webkit-text-stroke: 0.2px var(--blackColor);
+
+  --mapZindex: 1;
+
+  --gridMarginTop: 1rem;
+  --gridMarginLeft: 3rem;
+  --gridMaxWidth: 20rem;
+  --gridWidth: 90%;
+
+  --bodyFontFamily: 'Open Sans';
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: .875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+
+  --searchBoxZindex: 100;
+
+  --searchBorderRadius: .125rem;
+  --searchFontSize: .75rem;
+  --searchPadding: .07rem;
+
+  --searchInputBorderRadius: .125rem;
+
+  --searchInputSearchPaddingHorizontal: .5rem;
+  --searchInputSearchPaddingVertical: .375rem;
+
+  --searchInputButtonPaddingHorizontal: .625rem;
+  --searchInputButtonPaddingVertical: .375rem;
+
+  /* Table Style */
+  --tableWidth: 1000px;
+
+}
+
+/**********************************************************************/
+/* global style setting */
+
+::placeholder {
+  color: var(--darkGrayColor);
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+input[type="checkbox"] {
+	text-align: center;
+}
+
+checkbox {
+	text-align: center;
+}
+
+/**********************************************************************/
+
+.page-main-image {
+	position: relative;
+    /* height: 500px; */
+    height: 80vh;
+}
+
+.page-breadcrumb {
+	background-color: var(--lightYellowColor);
+	padding: 5px 20px;
+	font-size: 17px;
+}
+
+.page-breadcrumb a#previous-page-name:hover { /* #previous-page-nameにのみ適用  */
+	text-decoration: underline; /* マウスオーバー時は下線を表示 */
+}
+.page-breadcrumb #previous-page-name {
+	color: 	#808080;
+}
+.page-breadcrumb p {
+	display: inline; /* pタグを改行させない */
+}
+
+.page-breadcrumb span {
+	color: 	#808080;
+}
+
+.page-top-nav {
+	height: 40px;
+}
+
+.page-top-nav-links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+}
+
+.page-top-nav #blog	{
+	margin-right: 40px;
+}
+
+/* three dots leader */
+.css-three-dots-leader-btn {
+  border: none;
+  background: none;
+ /* display: block; */
+  position: relative;
+  /* ボタン要素のサイズ */
+  width: 25px;
+  height: 10px;
+}
+.css-three-dots-leader-btn #css-three-dots,
+.css-three-dots-leader-btn #css-three-dots::before,
+.css-three-dots-leader-btn #css-three-dots::after {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  /* ドット1つのサイズ */
+  width: 3px;
+  height: 3px;
+  /* ドットの色 */
+  background-color: #000;
+}
+.css-three-dots-leader-btn #css-three-dots {
+  top: 0;
+  right: 0;
+  bottom: 10;
+  left: 0;
+  margin: auto;
+}
+.css-three-dots-leader-btn #css-three-dots::before,
+.css-three-dots-leader-btn #css-three-dots::after {
+  content: '';
+}
+.css-three-dots-leader-btn #css-three-dots::before {
+  /* 上側ドットの位置 */
+  top: -7px;
+}
+.css-three-dots-leader-btn #css-three-dots::after {
+  /* 下側ドットの位置 */
+  top: 7px;
+}
+/* three dots leader end */
+
+/** button */
+button {
+	cursor: pointer;
+}
+
+/** table */
+table {
+	border: 1px solid var(--grayColor);
+	border-collapse: collapse;
+	margin: 3px 0px;
+/*	table-layout: fixed;*/
+}
+
+td, th {
+	border: 1px solid var(--grayColor);
+	padding: 7px 20px;
+	font-weight: var(--lighterFontWeight);
+}
+
+#content-table {
+	background-color: var(--whiteColor);
+}
+
+
+/** Map Result */
+div.map-search-results {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 15px 70px;
+}
+
+.map-search-results table {
+	width: var(--tableWidth);
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.map-search-results table #header-table {
+	background-color: var(--whiteColor);
+	text-align: center;
+}
+
+#search-result-header-table th:nth-of-type(1){
+	text-align: start;
+	width: 100%;
+	border: none;
+}
+
+#css-search-result-button-td button {
+	height: 20px;
+	width: 50%;
+	border-radius: 0px;
+	background-color: ;
+}
+
+/* search-result-table header columns */
+/** No */
+#search-result-table #header-table th:nth-of-type(1){
+	width: 2px;
+}
+/** Address */
+#search-result-table #header-table th:nth-of-type(2){
+}
+/** Add to list */
+#search-result-table #header-table th:nth-of-type(4){
+	width: 130px;
+}
+
+/** error message **/
+.css-error-message {
+	margin: 30px 0px 0px 70px;
+	color: var(--red01);
+}
+.css-error-message span::after {
+	content: "\A";
+	white-space: pre;
+}
+/** error message end **/
+
+/** The Luggage List */
+div.body-prep-luggage {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	padding: 15px 70px;
+	/* flex-direction: column; */ /* 子要素を縦に並べる */
+}
+
+#page-title {
+	/*font-size: 15px;*/
+}
+#page-title p{
+	text-align: left;
+}
+.css-list-chbox {
+	display: none;
+}
+
+/* luggage-list-table nav ***********/
+.css-luggage-keyword-list,
+.css-luggage-keyword-items {
+	display: flex;
+	flex-direction: row;
+}
+.css-luggage-keyword-list div,
+.css-luggage-keyword-list button {
+	margin: 0 10px 0 0;
+}
+.css-luggage-keyword-items div {
+	display: none;
+	height: 100%;
+	margin: 10px 10px;
+	padding: 15px;
+	background-color: var(--lightGreenColor);
+	border-radius: 5px;
+}
+.css-luggage-keyword-items > div > input {
+	display: none;
+}
+.css-luggage-keyword-items > div > label {
+	cursor: pointer;
+}
+.css-luggage-keyword {
+	position: relative;
+	/* width: 36px; */
+	/* height: 24px; */
+	padding: 10px;
+	border-radius: 50px;
+	/* overflow: hidden; */ /* 枠内に収まらない要素は表示しない */
+	cursor: pointer;
+	/* background-color: var(--blackColor); */
+	border-style: solid;
+	border-width: thin;
+	border-color: var(--grayColor);
+}
+[class$=css-luggage-keyword] > input {  /* 子要素のinputタグに適用する */
+/*.css-luggage-keyword > input {*/
+	display: none;
+}
+[class$=css-luggage-keyword] > label {
+	cursor: pointer;
+}
+.css-luggage-keyword.checked:before {
+	background: var(--greenColor);
+}
+.css-luggage-keyword.checked:after {
+	left: 33%;
+	box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* luggage-list-table *********************/
+#luggage-list-table {
+	border: none;
+	min-width: 100%;
+}
+#luggage-list-table textarea {
+	word-break: normal;  /* 文字列折り返し */
+}
+#luggage-list-table .css-list-chbox:checked + label{
+    background-color: var(--lightGrayColor);
+    color: var(--blackColor);
+	border: none;
+}
+#luggage-list-table .css-list-chbox + label {
+	padding: 5px 20px;
+	text-align: center;
+	cursor: pointer;
+    /* background-color: var(--whiteColor); */
+    color: var(--lightGrayColor);
+    border-radius: 3px;
+	/* border: 0.2px solid var(--blackColor); */
+}
+#luggage-list-table th:nth-of-type(1) {
+	display: none;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+	background-color: var(--whiteColor);
+	width: 5%;
+}
+#luggage-list-table th:nth-of-type(3),
+#luggage-list-table th:nth-of-type(4) {
+	width: 10%;
+}
+#luggage-list-table th:nth-of-type(5) {
+	width: 50%;
+}
+#luggage-list-table th:nth-of-type(6) {
+	width: 30%;
+}
+#luggage-list-table tbody td:nth-of-type(1) {
+	position: relative;
+	cursor: grabbing;
+	background-color: var(--whiteColor);
+	display: none;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+}
+#luggage-list-table tbody td:nth-of-type(1): active {
+	cursor: grabbing;
+}
+#luggage-list-table tbody td:nth-of-type(1) span,
+#luggage-list-table tbody td:nth-of-type(1) span::before,
+#luggage-list-table tbody td:nth-of-type(1) span::after {
+	display: inline-block;
+	position: relative;
+	background: var(--lightGrayColor);
+	width: 17px;
+	height: 1px;
+}
+#luggage-list-table tbody td:nth-of-type(1) span::before,
+#luggage-list-table tbody td:nth-of-type(1) span::after {
+	content: '';
+}
+#luggage-list-table tbody td:nth-of-type(1) span {
+    top: 0;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    margin: auto;
+}
+#luggage-list-table tbody td:nth-of-type(1) span::before {
+	top: -10px;
+}
+#luggage-list-table tbody td:nth-of-type(1) span::after {
+	top: 10px;
+}
+/*
+#luggage-list-table tbody :not(td:nth-of-type(1)) {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+*/
+/* Bag No */
+[class^=luggage-bag-no] select {
+	margin: -7px -17px;
+	width: 150%;
+	height: 40px;
+	font-size: 20px;
+	text-align: center;
+	border: none;
+}
+/* Bag No */
+#luggage-list-table tbody td:nth-of-type(3) {
+	text-align: center;
+}
+/* Item No */
+#luggage-list-table tbody td:nth-of-type(4) {
+    /* width: 100%; */
+	display: none;
+}
+
+[id^=luggage-record-content-name] input,
+[class^=luggage-item-name] input,
+[id^=luggage-record-content-num] input,
+[class^=luggage-item-count] input {
+	margin: -7px -17px;
+	display: inline-block;
+	height: 40px;
+	font-size: 20px;
+	border: none;
+	outline: none;
+	/* background-color: var(--whiteColor); */
+}
+[id^=luggage-record-content-name] input:-webkit-autofill,
+[class^=luggage-item-name] input:-webkit-autofill,
+[id^=luggage-record-content-num] input:-webkit-autofill,
+[class^=luggage-item-count] input:-webkit-autofill {
+	box-shadow: 0 0 0 1000px white inset;
+}
+[id^=luggage-record-content-name] input,
+[class^=luggage-item-name] input {
+	width: 104%;
+}
+[id^=luggage-record-content-num] input,
+[class^=luggage-item-count] input {
+	text-align: end;
+}
+
+/* luggage-list-table end ******************/
+
+
+/** luggage-list-area */
+#luggage-list-area {
+	padding: 0px 70px;
+	min-width: 1200px;
+}
+
+#span-spotListRecordNo {
+	visibility : hidden;
+}
+
+#header-table {
+	background-color: var(--greenColor);  /*background-color: var(--lightYellowColor);*/
+}
+
+[id^=spot-list-record-content-] {
+	/* width: 100%; */
+	/* border: none; */
+	outline: none;
+}
+
+[id*=list-record-no] {
+	width: 2px;
+}
+
+
+/** The Created Route */
+/* the created route **************************/
+
+.body-create-route {
+	padding: 45px 70px;
+}
+.css-confirm-btn {
+	margin: 30px 0px 0px 70px;
+	height: 50px;
+}
+.css-confirm-btn::before {/* 閉じている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(-45deg); */
+    transform: rotate(-45deg);
+}
+.css-confirm-btn.active::before {/* 開いている時 */
+	content: "";
+	display: block;
+	position: absolute;
+/*	margin-right: 10px; */
+    margin-left: 10px;
+	width: 10px;
+	height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+/*    transform: translateX(-50%) rotate(135deg); */
+    transform: rotate(135deg);
+}
+.css-confirm-btn p {
+	margin: 0px 15px 0px 35px;
+}
+
+/* the created table end **********************/
+
+/* page control *******************************/
+.page-control {
+	padding: 45px 70px 0px 70px;
+	display: flex;
+}
+
+
+/* page control end ***************************/
+
+
+
+/**********************************************************************/
+/* Search Box */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.form-field {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.05rem;
+
+	background-color: var(--grayColor);
+	border-radius: var(--searchBorderRadius);
+	font-size: var(--searchFontSize);
+	padding: var(--searchPadding);
+}
+
+.form-field input {
+  appearance: none;
+  border: none;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.form-field input[type="search"],
+.form-field input[type="button"] {
+  border-radius: var(--searchInputBorderRadius);
+}
+
+.form-field input[type="search"] {
+  appearance: textfield;
+  box-sizing: content-box;
+
+  background-color: var(--whiteColor);
+  color: var(--darkGrayColor);
+  padding: var(--searchInputSearchPaddingVertical) var(--searchInputSearchPaddingHorizontal);
+}
+
+.form-field input[type="button"] {
+  cursor: pointer;
+}
+
+#content-to-search {
+  flex-grow: 1;
+}
+
+/**********************************************************************/

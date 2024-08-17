@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- Spring MVC の機能を使うことを宣言。 -->
+	<!-- この宣言をすることで、 @Component などのアノテーションが使えるようになる。 -->
+	<mvc:annotation-driven />
+	
+	<!-- Bean となるクラスファイルが格納されているパッケージを宣言。 -->
+	<!-- Spring はこのパッケージ配下を自動でスキャンし、Bean として登録する。 -->
+	<context:component-scan base-package="com.N4x0leaf4m" />
+	
+	<!-- JSP を使用するための宣言 -->
+	<mvc:view-resolvers>
+		<!-- コントローラが JSP 名（拡張子なし）を返した際、Spring が 「.jsp」を付与し「/WEB-INF/views/」配下から探すように設定。 -->
+		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
+	</mvc:view-resolvers>
+
+</beans>
