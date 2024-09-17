@@ -437,7 +437,7 @@ const createRoute = (function () {
 		});
 	});
 	
-	// back to recode:
+	// back to Spot　List:
 	// send the checked recode back to the spot list when the button's clicked
 	const sendBackToSpotList = (function() {
 		$('.js-back-to-recode').click(function() {
