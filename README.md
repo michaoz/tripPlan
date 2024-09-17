@@ -2,27 +2,27 @@
 tripPlan: app to plan trips
  
   
-# dockerで起動 - Dockerfileのみでの環境構築
+# Execute in Docker - build the env with a Dockerfile only
 
-- Dockerfileがあるディレクトリに移動する 
+- Move to the directory where Dockerfile is. 
  
 ```
-cd {Dockerfileがあるディレクトリ}
+cd {Dockerfile directory}
 ```
 
-- dockerでビルドする  
+- Build with docker
  
 ```
 docker build . -t tripPlan-app:0.1
 ```
  
-- コンテナの起動
+- Start container
   
 ```
 docker container run -d -p 8080:8080 tripPlan-app:0.1
 ```
 
-  又は  
+  or
 
 ```
 docker container run --name app-container -d -p 8080:8080 tripPlan-app:0.1
@@ -30,9 +30,9 @@ docker container run --name app-container -d -p 8080:8080 tripPlan-app:0.1
   
 ***
 
-# dockerで起動 - docker composeのみでの環境構築
+# Execute in Docker - build the env with docker compose only
 
-dockerを立ち上げる
+Start docker
 
 ```
 $ docker compose up -d
@@ -40,9 +40,9 @@ $ docker compose up -d
  
 ***
 
-# dockerde起動 - docker compose、Dockerfileで環境構築
+# Execute in dockerde - build the env with docker compose, Dockerfile
 
-dockerイメージを作成して、dockerを立ち上げる。
+Create a docker image and then start docker.
 
 ```
 $ docker-compose up --build
@@ -51,14 +51,14 @@ $ docker-compose up --build
 ***
 
  
-# ページにアクセスする  
+# Access to pages  
 
-Top画面  
+Top page
 
 ```
 http://localhost:8080/tripPlan/travel/
 ```
- ルート作成画面
+Route page
  
 ```
 http://localhost:8080/tripPlan/travel/tripPlans/createRoute
