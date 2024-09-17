@@ -1,7 +1,6 @@
 com\oz\entity\LuggageItemEntity.class
 com\oz\service\dao\LuggageInfoDaoImpl.class
 com\oz\service\PrepLuggageService.class
-com\controller\SampleController.class
 com\oz\entity\SpotInfoEntity.class
 com\oz\service\TripPlanService.class
 com\oz\consts\CommonConstant$LUGGAGE_KEYWORD_ITEMS.class

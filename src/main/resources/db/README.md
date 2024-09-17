@@ -2,31 +2,33 @@
 tripPlan: app to plan trips
  
   
-# dockerで起動 - Dockerfileのみでの環境構築
+# Execute in Docker - build the env with Dockerfile only
 
-- Dockerfileがあるディレクトリに移動する 
+- Move to the directory where Dockerfile is 
  
 ```
-cd {Dockerfileがあるディレクトリ}
+cd {Dockerfile directory}
 ```
 
-- dockerでビルドする  
+- build in docker  
  
 ```
 docker build . -t tripPlan-app:0.1
 ```
- 
-### ローカルDB環境
 
-- psqlにログインする 
+### Create DB with sql files
+- sql files
  
 ```
-# postgresユーザー、psqlデータベース
-psql -U psql -h localhost -p 5432 -d psql
-　
-# workuserユーザー、db_workデータベース
-psql -U workuser -h localhost -p 5432 -d db_work
-workuser_pass
+\tripPlan\src\main\resources\db\sql\
+```
+ 
+### DB in a local environment
+
+- Log in PostgreSQL
+ 
+```
+psql -U { user_name } -h localhost -p 5432 -d { db_name }
 ```
  
 

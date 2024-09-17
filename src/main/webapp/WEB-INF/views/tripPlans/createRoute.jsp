@@ -190,7 +190,7 @@
 			  <div id="page-title">
 			    <p>Delete List</p>
 			  </div>
-			  <button type="button" class="js-back-to-recode css-back-to-recode-button">back to recode</button>
+			  <button type="button" class="js-back-to-recode css-back-to-recode-button">back to Spot List</button>
 			  <table id="delete-list-table">
 		        <thead>
 		          <tr id="header-table">
